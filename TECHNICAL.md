@@ -14,16 +14,18 @@ Purpose: Main entry point of the application
 
 Components:
 
-- Title: Student Registration Portal
+- School logo display
+- Title: "Welcome to Student Registration Portal"
 - Two main buttons:
   - Student (for registration)
   - Admin (for administrative access)
 
 Design:
 
-- Light blue background
-- Professional button styling
+- Light blue background (RGB: 245, 245, 245)
+- Professional button styling with hover effects
 - Responsive layout
+- Segoe UI font family
 
 ### Student Registration
 
@@ -31,8 +33,11 @@ Purpose: Register new students
 
 Input Fields:
 
-- Full Name (text field)
-- ID (text field)
+- First name (text field)
+- Last name (text field)
+- Date of birth (spinner with date picker)
+- Gender (radio buttons: Male/Female)
+- ID (text field with format validation)
 - Year (dropdown: 1-4)
 - Department (dropdown with options):
   - Computer Science
@@ -43,11 +48,19 @@ Input Fields:
 Validation:
 
 - Checks for empty fields
+- Validates ID format (XXXX/XX)
 - Shows error message if required fields are empty
+- Validates date format
 
 Success Message:
 
-- Displays all entered information
+- Displays all entered information:
+  - Full Name
+  - Date of Birth
+  - Gender
+  - ID
+  - Year
+  - Department
 - Confirms successful registration
 
 ### Admin Login
@@ -63,6 +76,7 @@ Security:
 
 - Password field masks input
 - Invalid credentials message
+- Clean error handling
 
 ### Admin Panel
 
@@ -78,6 +92,8 @@ Features:
 Displayed Information:
 
 - Full Name
+- Date of Birth
+- Gender
 - ID
 - Year
 - Department
@@ -89,11 +105,15 @@ Displayed Information:
    - Main application class
    - Contains all GUI components and logic
    - Manages panel switching and data flow
+   - Implements event handling
+   - Manages data validation
 
 2. Student
    - Inner class for student data
    - Properties:
      - fullName
+     - dateOfBirth
+     - gender
      - id
      - year
      - department
@@ -104,6 +124,8 @@ Displayed Information:
 - In-memory storage using ArrayList
 - No persistent storage (data resets on application restart)
 - Real-time updates in admin panel
+- Data validation before storage
+- Sorting capability in admin view
 
 ## GUI Components
 
@@ -112,12 +134,14 @@ Displayed Information:
    - CardLayout for panel switching
    - GridBagLayout for form layouts
    - BorderLayout for admin panel
+   - FlowLayout for button panels
 
 2. Styling
    - Custom colors for better visibility
-   - Consistent font usage
+   - Consistent font usage (Segoe UI)
    - Professional button styling
    - Responsive design
+   - Modern color scheme
 
 ## Usage Guide
 
@@ -126,8 +150,10 @@ Displayed Information:
 1. Launch the application
 2. Click Student button
 3. Fill in the registration form:
-   - Enter full name
-   - Enter ID
+   - Enter first and last name
+   - Select date of birth
+   - Choose gender
+   - Enter ID (XXXX/XX format)
    - Select year
    - Select department
 4. Click Register
@@ -155,7 +181,13 @@ Displayed Information:
    - Prevents registration
    - Prompts user to fill all fields
 
-2. Invalid Login
+2. Invalid ID Format
+
+   - Shows specific error message
+   - Explains required format
+   - Prevents registration
+
+3. Invalid Login
    - Shows error message
    - Clears password field
    - Allows retry
@@ -166,6 +198,7 @@ Displayed Information:
 
    - Database integration
    - File-based storage
+   - Data backup system
 
 2. Additional Features
 
@@ -173,15 +206,22 @@ Displayed Information:
    - Record deletion
    - Search functionality
    - Export to Excel/PDF
+   - Student photo upload
+   - Course registration
 
 3. Security
    - Password encryption
    - Multiple admin accounts
    - Session management
+   - Activity logging
 
 ## Version History
 
 Version 1.0
+
 - Basic registration system
 - Admin panel
 - Student management
+- Modern UI design
+- Form validation
+- Data sorting

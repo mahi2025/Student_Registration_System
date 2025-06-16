@@ -10,7 +10,7 @@ import javax.swing.SpinnerDateModel;
 import javax.swing.SpinnerNumberModel;
 
 
-public class StudentRegistrationSystem {
+public class studentRegistrationSystem {
     private static ArrayList<Student> students = new ArrayList<>();
     private static JFrame mainFrame;  //The main application window 
     private static CardLayout cardLayout; //o switch between different panels 
